@@ -1,11 +1,25 @@
 import React from "react";
+// import { List, Item, Button} from './ContactsStyled'
 
-const Contacts = ({ name, id}) => 
-(
-<div className="contacts">
-    {/* <Title className="section-title">{title}</Title>
-    {children} */}
-</div>
+const ContactList = ({ onFilter, onDelete }) => {
+    return (
+
+<div>
+      {onFilter.map(({ name, number, id }) => {
+        return (
+          <div key={id}>
+            <span>{name}:</span>
+            <span>{number}:</span>
+
+            <button type="button" onClick={() => onDelete(id)}/>
+              
+          </div>
+        );
+      })}
+    </div>
 )
+}
 
-export default Contacts
+export default ContactList
+
+
